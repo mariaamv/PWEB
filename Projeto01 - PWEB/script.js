@@ -1,63 +1,110 @@
+// ==================== Saudação ====================
+const horas = new Date().getHours();
 const cumprimento = document.getElementById("saudacao");
 
-const horas = new Date().getHours();
-let hora;
-
-if (horas >= 6 && horas <= 11) {
-    hora = "Bom dia";
-}
-else if (horas >= 12 && horas <= 17) {
-    hora = "Boa tarde";
-}
-else {
-    hora = "Boa noite";
+let saudacaoTexto;
+if (horas < 12) {
+    saudacaoTexto = "Bom dia";
+} else if (horas < 18) {
+    saudacaoTexto = "Boa tarde";
+} else {
+    saudacaoTexto = "Boa noite";
 }
 
-cumprimento.innerHTML = `${hora}, <b>Clara e Luma👋</b>`;
+cumprimento.innerHTML = `${saudacaoTexto}, <b>Clara e Luma👋</b>`;
 
-// function adicionar_tarefa (){
-//     const tarefas = document.getElementById("add_tarefa");
-//     const meses = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
-// }
+// ==================== TodoList ====================
+const formulario = document.getElementById("container_1");
+const inputTarefa = document.getElementById("add_tarefa");
+const divConcluidas = document.getElementById("concluidas");
+const divUltima = document.querySelector(".ult_div");
 
-const form = document.getElementById("container_1");
-const verificado = document.getElementsByClassName("verificado");
-const tarefas = [];
+let tarefas = [];
 
-let ult_div = document.getElementById("ult_div");
-let copia_ult_div = ult_div;
-
-form.addEventListener("submit", function(CL){
-    CL.preventDefault();
-
-    let nome = document.getElementById("add_tarefa").value;
-    const meses = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
-    const data_tarefa = `${horas.getDate()} de ${meses[horas.getMonth() - 1]} ${horas.getFullYear()}`;
-    const situacao = false;
-
-    const tarefa = {
-        "nome": nome,
-        "data": data_tarefa,
-        "done": situacao 
-    };
-
-    tarefas.push(tarefa);
-    if(ult_div){
-        copia_ult_div.remove();
+// Adiciona tarefa
+formulario.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const texto = inputTarefa.value.trim();
+    if (!texto) {
+        alert("Digite o nome da tarefa!");
+        return;
     }
 
-    const tarefa_concluida = tarefas.filter(tarefa => tarefa.done === true). length;
-    let concluidas = document.getElementById("concluidas");
-
-    if(concluidas){
-        concluidas.innerHTML = `<h4>${tarefa_concluida} de ${tarefas.length} <b>concluídas</b>`;
-    }
-    else {
-        let concluidasEl = document.createElement("div");
-        concluidasEl.setAttribute("id", "concluidas");
-        document.getElementById("tarefasConcluidas").append(concluidasEl);
-        concluidasEl.innerHTML = `<h4>${tarefa_concluida} de ${tarefas.length} <b>concluídas</b>`;
-    }
-
-
+    tarefas.push({ nome: texto, concluida: false });
+    inputTarefa.value = "";
+    mostrarTarefas();
 });
+
+// Mostra tarefas
+function mostrarTarefas() {
+    // Limpa tarefas antigas
+    const antigas = document.querySelectorAll(".tarefa-item");
+    antigas.forEach(t => t.remove());
+
+    if (tarefas.length === 0) {
+        divUltima.style.display = "flex";
+        divConcluidas.innerHTML = "";
+        return;
+    } else {
+        divUltima.style.display = "none";
+    }
+
+    tarefas.forEach((tarefa, index) => {
+        // Criar elementos
+        const divTarefa = document.createElement("div");
+        divTarefa.className = "tarefa-item";
+
+        const divInfo = document.createElement("div");
+        divInfo.className = "tarefa-info";
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = tarefa.concluida;
+
+        const span = document.createElement("span");
+        span.textContent = tarefa.nome;
+        if (tarefa.concluida) {
+            span.classList.add("concluida");
+        }
+
+        const botao = document.createElement("button");
+        botao.textContent = "🗑️";
+        botao.className = "btn-delete";
+
+        // Monta a estrutura
+        divInfo.appendChild(checkbox);
+        divInfo.appendChild(span);
+
+        divTarefa.appendChild(divInfo);
+        divTarefa.appendChild(botao);
+
+        divUltima.parentNode.insertBefore(divTarefa, divUltima);
+
+        // Eventos
+        checkbox.addEventListener("change", () => {
+            tarefa.concluida = checkbox.checked;
+            if (tarefa.concluida) {
+                span.classList.add("concluida");
+            } else {
+                span.classList.remove("concluida");
+            }
+            atualizarContador();
+        });
+
+        botao.addEventListener("click", () => {
+            tarefas.splice(index, 1);
+            mostrarTarefas();
+        });
+    });
+
+    atualizarContador();
+}
+
+// Atualiza contador
+function atualizarContador() {
+    const concluidas = tarefas.filter(t => t.concluida).length;
+    divConcluidas.innerHTML = `${concluidas} de ${tarefas.length} <strong>concluídas</strong>`;
+}
+
+// Inicia
+mostrarTarefas();
