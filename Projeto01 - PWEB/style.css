@@ -120,3 +120,17 @@ main {
     cursor: pointer;
     font-size: 18px;
 }
+
+.data-tarefa {
+    display: block;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+.verde {
+    background: #d6ffd8 !important;
+    border: 1px solid #32a852 !important;
+}
+
+ 
+ 

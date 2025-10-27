@@ -30,7 +30,10 @@ formulario.addEventListener("submit", (e) => {
         return;
     }
 
-    tarefas.push({ nome: texto, concluida: false });
+    const dataAtual = new Date();
+    const dataFormatada = dataAtual.toLocaleDateString("pt-BR");
+
+    tarefas.push({ nome: texto, concluida: false, data: dataFormatada });
     inputTarefa.value = "";
     mostrarTarefas();
 });
@@ -50,7 +53,6 @@ function mostrarTarefas() {
     }
 
     tarefas.forEach((tarefa, index) => {
-        // Criar elementos
         const divTarefa = document.createElement("div");
         divTarefa.className = "tarefa-item";
 
@@ -61,19 +63,27 @@ function mostrarTarefas() {
         checkbox.type = "checkbox";
         checkbox.checked = tarefa.concluida;
 
+        const textoDiv = document.createElement("div");
+
         const span = document.createElement("span");
         span.textContent = tarefa.nome;
         if (tarefa.concluida) {
             span.classList.add("concluida");
         }
 
+        const data = document.createElement("small");
+        data.textContent = `Adicionada em ${tarefa.data}`;
+        data.className = "data-tarefa";
+
+        textoDiv.appendChild(span);
+        textoDiv.appendChild(data);
+
         const botao = document.createElement("button");
         botao.textContent = "🗑️";
         botao.className = "btn-delete";
 
-        // Monta a estrutura
         divInfo.appendChild(checkbox);
-        divInfo.appendChild(span);
+        divInfo.appendChild(textoDiv);
 
         divTarefa.appendChild(divInfo);
         divTarefa.appendChild(botao);
@@ -85,8 +95,10 @@ function mostrarTarefas() {
             tarefa.concluida = checkbox.checked;
             if (tarefa.concluida) {
                 span.classList.add("concluida");
+                divTarefa.classList.add("verde");
             } else {
                 span.classList.remove("concluida");
+                divTarefa.classList.remove("verde");
             }
             atualizarContador();
         });
