@@ -1,19 +1,17 @@
-// ==================== Saudação ====================
 const horas = new Date().getHours();
 const cumprimento = document.getElementById("saudacao");
+let hora;
 
-let saudacaoTexto;
-if (horas < 12) {
-    saudacaoTexto = "Bom dia";
-} else if (horas < 18) {
-    saudacaoTexto = "Boa tarde";
+if (horas >= 6 && horas <= 11) {
+    hora = "Bom dia";
+} else if (horas >= 12 && horas <= 17) {
+    hora = "Boa tarde";
 } else {
-    saudacaoTexto = "Boa noite";
+    hora = "Boa noite";
 }
 
-cumprimento.innerHTML = `${saudacaoTexto}, <b>Clara e Luma👋</b>`;
+cumprimento.innerHTML = `${hora} <b>Clara e Luma 👋</b>`;
 
-// ==================== TodoList ====================
 const formulario = document.getElementById("container_1");
 const inputTarefa = document.getElementById("add_tarefa");
 const divConcluidas = document.getElementById("concluidas");
@@ -21,7 +19,6 @@ const divUltima = document.querySelector(".ult_div");
 
 let tarefas = [];
 
-// Adiciona tarefa
 formulario.addEventListener("submit", (e) => {
     e.preventDefault();
     const texto = inputTarefa.value.trim();
@@ -31,16 +28,18 @@ formulario.addEventListener("submit", (e) => {
     }
 
     const dataAtual = new Date();
-    const dataFormatada = dataAtual.toLocaleDateString("pt-BR");
+    const meses = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
+    const dia = dataAtual.getDate();
+    const mes = meses[dataAtual.getMonth()];
+    const ano = dataAtual.getFullYear();
+    const dataFormatada = `${dia} de ${mes} de ${ano}`;
 
     tarefas.push({ nome: texto, concluida: false, data: dataFormatada });
     inputTarefa.value = "";
     mostrarTarefas();
 });
 
-// Mostra tarefas
 function mostrarTarefas() {
-    // Limpa tarefas antigas
     const antigas = document.querySelectorAll(".tarefa-item");
     antigas.forEach(t => t.remove());
 
@@ -71,15 +70,17 @@ function mostrarTarefas() {
             span.classList.add("concluida");
         }
 
-        const data = document.createElement("small");
-        data.textContent = `Adicionada em ${tarefa.data}`;
+        const data = document.createElement("p");
+        data.innerHTML = tarefa.concluida
+            ? `Concluída em: ${tarefa.data}`
+            : `Criada em: ${tarefa.data}`;
         data.className = "data-tarefa";
 
         textoDiv.appendChild(span);
         textoDiv.appendChild(data);
 
         const botao = document.createElement("button");
-        botao.textContent = "🗑️";
+        botao.textContent = "✖";
         botao.className = "btn-delete";
 
         divInfo.appendChild(checkbox);
@@ -88,16 +89,21 @@ function mostrarTarefas() {
         divTarefa.appendChild(divInfo);
         divTarefa.appendChild(botao);
 
+        if (tarefa.concluida) {
+            divTarefa.classList.add("verde");
+        }
+
         divUltima.parentNode.insertBefore(divTarefa, divUltima);
 
-        // Eventos
         checkbox.addEventListener("change", () => {
             tarefa.concluida = checkbox.checked;
             if (tarefa.concluida) {
                 span.classList.add("concluida");
+                data.textContent = `Concluída em: ${tarefa.data}`;
                 divTarefa.classList.add("verde");
             } else {
                 span.classList.remove("concluida");
+                data.textContent = `Criada em: ${tarefa.data}`;
                 divTarefa.classList.remove("verde");
             }
             atualizarContador();
@@ -112,11 +118,9 @@ function mostrarTarefas() {
     atualizarContador();
 }
 
-// Atualiza contador
 function atualizarContador() {
     const concluidas = tarefas.filter(t => t.concluida).length;
-    divConcluidas.innerHTML = `${concluidas} de ${tarefas.length} <strong>concluídas</strong>`;
+    divConcluidas.innerHTML = `${concluidas} de ${tarefas.length} <strong class="verdinho">concluídas</strong>`;
 }
 
-// Inicia
 mostrarTarefas();

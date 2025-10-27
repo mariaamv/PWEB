@@ -110,8 +110,8 @@ main {
 }
 
 .concluida {
-    text-decoration: line-through;
     color: #7063F0;
+    display: inline-flexbox;
 }
 
 .btn-delete {
@@ -123,14 +123,24 @@ main {
 
 .data-tarefa {
     display: block;
-    font-size: 0.8rem;
     color: #555;
 }
 
 .verde {
-    background: #d6ffd8 !important;
-    border: 1px solid #32a852 !important;
+    background: #d6ffd8;
+    border: 1px solid #02AF75;
 }
 
- 
- 
+.verdinho {
+    color: #32a852;
+}
+
+.cont {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contador {
+    margin-top: auto;
+    margin-bottom: auto;
+}
