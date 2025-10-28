@@ -17,6 +17,12 @@ const inputTarefa = document.getElementById("add_tarefa");
 const divConcluidas = document.getElementById("concluidas");
 const divUltima = document.querySelector(".ult_div");
 
+let TarfasSalvas = JSON.parse(localStorage.getItem("tarefas"));
+
+function SalvarTrf() { 
+    localStorage.setItem("tarefas", JSON.stringify(tarefas));
+}
+
 let tarefas = [];
 
 formulario.addEventListener("submit", (e) => {
@@ -36,6 +42,7 @@ formulario.addEventListener("submit", (e) => {
 
     tarefas.push({ nome: texto, concluida: false, data: dataFormatada });
     inputTarefa.value = "";
+    SalvarTrf();
     mostrarTarefas();
 });
 
@@ -106,11 +113,13 @@ function mostrarTarefas() {
                 data.textContent = `Criada em: ${tarefa.data}`;
                 divTarefa.classList.remove("verde");
             }
+            SalvarTrf();
             atualizarContador();
         });
 
         botao.addEventListener("click", () => {
             tarefas.splice(index, 1);
+            SalvarTrf();
             mostrarTarefas();
         });
     });
