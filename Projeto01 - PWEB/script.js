@@ -17,13 +17,11 @@ const inputTarefa = document.getElementById("add_tarefa");
 const divConcluidas = document.getElementById("concluidas");
 const divUltima = document.querySelector(".ult_div");
 
-let TarfasSalvas = JSON.parse(localStorage.getItem("tarefas"));
+let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
 
 function SalvarTrf() { 
     localStorage.setItem("tarefas", JSON.stringify(tarefas));
 }
-
-let tarefas = [];
 
 formulario.addEventListener("submit", (e) => {
     e.preventDefault();
