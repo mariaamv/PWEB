@@ -44,6 +44,25 @@ button {
     border: none;
     width: 15%;
 }
+.imagens {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.imagens img {
+    width:80%;
+    border: 7px solid black;
+}
+
+.edit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 84%;
+    
+}
 
 .fnl {
     display: flex;
