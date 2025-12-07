@@ -1,0 +1,135 @@
+{
+  "usuarios": [
+    {
+      "autor": "Luma",
+      "titulo": "Killing Eve",
+      "categoria": "Drama e Crime",
+      "url": "https://cdn.theplaylist.net/wp-content/uploads/2019/03/14210046/killing-eve-bbc-america.jpg",
+      "mensagem": "Killing Eve é um thriller psicológico marcado por uma intensa perseguição entre obsessão, crime e jogos mentais",
+      "data": "06 de dez.",
+      "editadoEm": 1765047729759,
+      "id": "8dac"
+    },
+    {
+      "autor": "Clara",
+      "titulo": "The Last Of Us",
+      "categoria": "Suspense e Ação",
+      "url": "https://meups.com.br/wp-content/uploads/2025/01/Temporada-2-de-The-Last-of-Us-logo-da-serie-no-fundo-vermelho.jpg",
+      "mensagem": "The Last Of Us: Pós-apocalipse ",
+      "data": "06 de dez.",
+      "editadoEm": 1765049506854,
+      "id": "30d4"
+    },
+    {
+      "autor": "Luma",
+      "titulo": "The Vampire Diaries",
+      "categoria": "Fantasia e Romance",
+      "url": "https://i.pinimg.com/1200x/21/90/0f/21900fd9aaf8e33197aae67104755092.jpg",
+      "mensagem": "TVD é uma série de fantasia e vampiros",
+      "data": "06 de dez.",
+      "editadoEm": 1765049642025,
+      "id": "1189"
+    },
+    {
+      "autor": "Luma",
+      "titulo": "Breaking Bad",
+      "categoria": "Drama e Crime",
+      "url": "https://i.pinimg.com/736x/ef/3c/42/ef3c420e01eb95b7dfa7c62f653d6ffc.jpg",
+      "mensagem": "Walter White e o mundo do crime",
+      "data": "06 de dez.",
+      "editadoEm": 1765050486272,
+      "id": "f594"
+    },
+    {
+      "autor": "Luma",
+      "titulo": "Bom Dia, Verônica",
+      "categoria": "Drama e Psicológico",
+      "url": "https://i.pinimg.com/1200x/1c/b4/ce/1cb4ce79b10f8b201ac45f13b2417a65.jpg",
+      "mensagem": "Série policial que expõe crimes, violência e segredos",
+      "data": "06 de dez.",
+      "editadoEm": 1765051282248,
+      "id": "61db"
+    },
+    {
+      "autor": "Clara",
+      "titulo": "Stranger Things",
+      "categoria": "Ficção Científica e Suspense",
+      "url": "https://i.pinimg.com/1200x/96/6e/28/966e2899230a243b1d228d4a5b7901c0.jpg",
+      "mensagem": "Stranger Things e seu impacto durante os anos",
+      "data": "06 de dez.",
+      "editadoEm": 1765051605811,
+      "id": "a8c9"
+    },
+    {
+      "autor": "Luma",
+      "titulo": "Black Mirror",
+      "categoria": "Ficção Utópica",
+      "url": "https://i.pinimg.com/1200x/bb/da/0c/bbda0c960716e8fc304edc4129d1b351.jpg",
+      "mensagem": "Black Mirror nos faz encarar um futuro próximo, cheio de tecnologias e suas vertentes",
+      "data": "06 de dez.",
+      "editadoEm": 1765052191313,
+      "id": "b2db"
+    },
+    {
+      "autor": "Luma",
+      "titulo": "YellowJackets",
+      "categoria": "Suspense e Drama",
+      "url": "https://i.pinimg.com/1200x/ad/71/bb/ad71bb722c2fee6473588a178fd72e3c.jpg",
+      "mensagem": "Série que mistura sobrevivência extrema, trauma psicológico e suspense em uma narrativa intensa",
+      "data": "06 de dez.",
+      "editadoEm": 1765052513258,
+      "id": "d2bc"
+    },
+    {
+      "autor": "Clara",
+      "titulo": "The Walking Dead",
+      "categoria": "Drama e Terror",
+      "url": "https://i.pinimg.com/736x/8f/4f/e3/8f4fe370ff04eb3c2cd0f1b3a6389aaf.jpg",
+      "mensagem": "The Walking Dead: Série pós-apocalíptica que explora a sobrevivência diante do caos",
+      "data": "06 de dez.",
+      "editadoEm": 1765053138156,
+      "id": "5dc0"
+    },
+    {
+      "autor": "Luma",
+      "titulo": "The Haunting of The Bly Manor",
+      "categoria": "Terror e Suspense",
+      "url": "https://i.redd.it/m0ic5sprldfe1.jpeg",
+      "mensagem": "Conheça um conto gótico sobre amor, perda e memórias que nunca se apagam",
+      "data": "06 de dez.",
+      "editadoEm": 1765055107780,
+      "id": "0628"
+    },
+    {
+      "autor": "Clara",
+      "titulo": "Dexter",
+      "categoria": "Drama e Crime",
+      "url": "https://i.pinimg.com/736x/b2/cc/12/b2cc1281f954a9ce7be7dd8e5976a0e2.jpg",
+      "mensagem": "A vida de um serial killer que leva uma dupla identidade",
+      "data": "06 de dez.",
+      "editadoEm": 1765055298739,
+      "id": "550d"
+    },
+    {
+      "autor": "Luma",
+      "titulo": "American Horror Story",
+      "categoria": "Terror e Suspense",
+      "url": "https://i.pinimg.com/1200x/fa/07/fd/fa07fd63cb933e41fef6ff9966e150cf.jpg",
+      "mensagem": "American Horror Story explora os medos humanos através do terror psicológico e social",
+      "data": "06 de dez.",
+      "editadoEm": 1765055456382,
+      "id": "2b6a"
+    },
+    {
+      "autor": "Clara",
+      "titulo": "You",
+      "categoria": "Psicológico e Drama",
+      "url": "https://i.pinimg.com/736x/39/69/b1/3969b148e439364d8a2059b3fa460ad2.jpg",
+      "mensagem": "You é um Thriller psicológico que revela até onde a obsessão pode chegar disfarçada de amor",
+      "data": "06 de dez.",
+      "editadoEm": 1765055684279,
+      "id": "6b11"
+    }
+  ],
+  "posts": []
+}
