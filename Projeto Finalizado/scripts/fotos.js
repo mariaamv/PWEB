@@ -76,11 +76,6 @@ async function carregarSemelhantes() {
 
         const outros = posts.filter(p => p.id != postIdAtual);
 
-        for (let i = outros.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [outros[i], outros[j]] = [outros[j], outros[i]];
-        }
-
         const relacionados = outros.slice(0, 3);
 
         relacionados.forEach(post => {
