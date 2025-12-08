@@ -110,7 +110,6 @@ botaoMais.addEventListener("click", () => {
 
 MaximoPosts();
 
-
 // botão de editar postagem
 const edtmodal = document.getElementById("edtmodal-overlay");
 const eform = document.getElementById("formEdt");
